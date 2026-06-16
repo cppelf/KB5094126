@@ -1480,7 +1480,7 @@ LPDISPATCH _Global::GetSynonymInfo(LPCTSTR Word, VARIANT* LanguageID)
     LPDISPATCH result;
     static BYTE parms[] =
         VTS_BSTR VTS_PVARIANT;
-    InvokeHelper(0x3b, DISPATCH_PROPERTYGET, VT_DISPATCH, (void*)&result, parms,
+    CustomInvokeHelper(0x3b, DISPATCH_PROPERTYGET, VT_DISPATCH, (void*)&result, parms,
         Word, LanguageID);
     return result;
 }
@@ -3272,7 +3272,7 @@ void _Document::RunLetterWizard(VARIANT* LetterContent, VARIANT* WizardMode)
 {
     static BYTE parms[] =
         VTS_PVARIANT VTS_PVARIANT;
-    InvokeHelper(0x7b, DISPATCH_METHOD, VT_EMPTY, nullptr, parms,
+    CustomInvokeHelper(0x7b, DISPATCH_METHOD, VT_EMPTY, nullptr, parms,
          LetterContent, WizardMode);
 }
 
@@ -5681,7 +5681,7 @@ void Range::Collapse(VARIANT* Direction)
 {
     static BYTE parms[] =
         VTS_PVARIANT;
-    InvokeHelper(0x65, DISPATCH_METHOD, VT_EMPTY, nullptr, parms,
+    CustomInvokeHelper(0x65, DISPATCH_METHOD, VT_EMPTY, nullptr, parms,
          Direction);
 }
 
@@ -5706,7 +5706,7 @@ LPDISPATCH Range::Next(VARIANT* Unit, VARIANT* Count)
     LPDISPATCH result;
     static BYTE parms[] =
         VTS_PVARIANT VTS_PVARIANT;
-    InvokeHelper(0x69, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
+    CustomInvokeHelper(0x69, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
         Unit, Count);
     return result;
 }
@@ -5716,7 +5716,7 @@ LPDISPATCH Range::Previous(VARIANT* Unit, VARIANT* Count)
     LPDISPATCH result;
     static BYTE parms[] =
         VTS_PVARIANT VTS_PVARIANT;
-    InvokeHelper(0x6a, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
+    CustomInvokeHelper(0x6a, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
         Unit, Count);
     return result;
 }
@@ -5726,7 +5726,7 @@ long Range::StartOf(VARIANT* Unit, VARIANT* Extend)
     long result = 0L;
     static BYTE parms[] =
         VTS_PVARIANT VTS_PVARIANT;
-    InvokeHelper(0x6b, DISPATCH_METHOD, VT_I4, (void*)&result, parms,
+    CustomInvokeHelper(0x6b, DISPATCH_METHOD, VT_I4, (void*)&result, parms,
         Unit, Extend);
     return result;
 }
@@ -5736,7 +5736,7 @@ long Range::EndOf(VARIANT* Unit, VARIANT* Extend)
     long result = 0L;
     static BYTE parms[] =
         VTS_PVARIANT VTS_PVARIANT;
-    InvokeHelper(0x6c, DISPATCH_METHOD, VT_I4, (void*)&result, parms,
+    CustomInvokeHelper(0x6c, DISPATCH_METHOD, VT_I4, (void*)&result, parms,
         Unit, Extend);
     return result;
 }
@@ -5746,7 +5746,7 @@ long Range::Move(VARIANT* Unit, VARIANT* Count)
     long result = 0L;
     static BYTE parms[] =
         VTS_PVARIANT VTS_PVARIANT;
-    InvokeHelper(0x6d, DISPATCH_METHOD, VT_I4, (void*)&result, parms,
+    CustomInvokeHelper(0x6d, DISPATCH_METHOD, VT_I4, (void*)&result, parms,
         Unit, Count);
     return result;
 }
@@ -5756,7 +5756,7 @@ long Range::MoveStart(VARIANT* Unit, VARIANT* Count)
     long result = 0L;
     static BYTE parms[] =
         VTS_PVARIANT VTS_PVARIANT;
-    InvokeHelper(0x6e, DISPATCH_METHOD, VT_I4, (void*)&result, parms,
+    CustomInvokeHelper(0x6e, DISPATCH_METHOD, VT_I4, (void*)&result, parms,
         Unit, Count);
     return result;
 }
@@ -5766,7 +5766,7 @@ long Range::MoveEnd(VARIANT* Unit, VARIANT* Count)
     long result = 0L;
     static BYTE parms[] =
         VTS_PVARIANT VTS_PVARIANT;
-    InvokeHelper(0x6f, DISPATCH_METHOD, VT_I4, (void*)&result, parms,
+    CustomInvokeHelper(0x6f, DISPATCH_METHOD, VT_I4, (void*)&result, parms,
         Unit, Count);
     return result;
 }
@@ -5776,7 +5776,7 @@ long Range::MoveWhile(VARIANT* Cset, VARIANT* Count)
     long result = 0L;
     static BYTE parms[] =
         VTS_PVARIANT VTS_PVARIANT;
-    InvokeHelper(0x70, DISPATCH_METHOD, VT_I4, (void*)&result, parms,
+    CustomInvokeHelper(0x70, DISPATCH_METHOD, VT_I4, (void*)&result, parms,
         Cset, Count);
     return result;
 }
@@ -5786,7 +5786,7 @@ long Range::MoveStartWhile(VARIANT* Cset, VARIANT* Count)
     long result = 0L;
     static BYTE parms[] =
         VTS_PVARIANT VTS_PVARIANT;
-    InvokeHelper(0x71, DISPATCH_METHOD, VT_I4, (void*)&result, parms,
+    CustomInvokeHelper(0x71, DISPATCH_METHOD, VT_I4, (void*)&result, parms,
         Cset, Count);
     return result;
 }
@@ -5796,7 +5796,7 @@ long Range::MoveEndWhile(VARIANT* Cset, VARIANT* Count)
     long result = 0L;
     static BYTE parms[] =
         VTS_PVARIANT VTS_PVARIANT;
-    InvokeHelper(0x72, DISPATCH_METHOD, VT_I4, (void*)&result, parms,
+    CustomInvokeHelper(0x72, DISPATCH_METHOD, VT_I4, (void*)&result, parms,
         Cset, Count);
     return result;
 }
@@ -5806,7 +5806,7 @@ long Range::MoveUntil(VARIANT* Cset, VARIANT* Count)
     long result = 0L;
     static BYTE parms[] =
         VTS_PVARIANT VTS_PVARIANT;
-    InvokeHelper(0x73, DISPATCH_METHOD, VT_I4, (void*)&result, parms,
+    CustomInvokeHelper(0x73, DISPATCH_METHOD, VT_I4, (void*)&result, parms,
         Cset, Count);
     return result;
 }
@@ -5816,7 +5816,7 @@ long Range::MoveStartUntil(VARIANT* Cset, VARIANT* Count)
     long result = 0L;
     static BYTE parms[] =
         VTS_PVARIANT VTS_PVARIANT;
-    InvokeHelper(0x74, DISPATCH_METHOD, VT_I4, (void*)&result, parms,
+    CustomInvokeHelper(0x74, DISPATCH_METHOD, VT_I4, (void*)&result, parms,
         Cset, Count);
     return result;
 }
@@ -5826,7 +5826,7 @@ long Range::MoveEndUntil(VARIANT* Cset, VARIANT* Count)
     long result = 0L;
     static BYTE parms[] =
         VTS_PVARIANT VTS_PVARIANT;
-    InvokeHelper(0x75, DISPATCH_METHOD, VT_I4, (void*)&result, parms,
+    CustomInvokeHelper(0x75, DISPATCH_METHOD, VT_I4, (void*)&result, parms,
         Cset, Count);
     return result;
 }
@@ -5850,7 +5850,7 @@ void Range::InsertBreak(VARIANT* Type)
 {
     static BYTE parms[] =
         VTS_PVARIANT;
-    InvokeHelper(0x7a, DISPATCH_METHOD, VT_EMPTY, nullptr, parms,
+    CustomInvokeHelper(0x7a, DISPATCH_METHOD, VT_EMPTY, nullptr, parms,
          Type);
 }
 
@@ -5858,7 +5858,7 @@ void Range::InsertFile(LPCTSTR FileName, VARIANT* Range, VARIANT* ConfirmConvers
 {
     static BYTE parms[] =
         VTS_BSTR VTS_PVARIANT VTS_PVARIANT VTS_PVARIANT VTS_PVARIANT;
-    InvokeHelper(0x7b, DISPATCH_METHOD, VT_EMPTY, nullptr, parms,
+    CustomInvokeHelper(0x7b, DISPATCH_METHOD, VT_EMPTY, nullptr, parms,
          FileName, Range, ConfirmConversions, Link, Attachment);
 }
 
@@ -5887,7 +5887,7 @@ long Range::Delete(VARIANT* Unit, VARIANT* Count)
     long result = 0L;
     static BYTE parms[] =
         VTS_PVARIANT VTS_PVARIANT;
-    InvokeHelper(0x7f, DISPATCH_METHOD, VT_I4, (void*)&result, parms,
+    CustomInvokeHelper(0x7f, DISPATCH_METHOD, VT_I4, (void*)&result, parms,
         Unit, Count);
     return result;
 }
@@ -5902,7 +5902,7 @@ long Range::Expand(VARIANT* Unit)
     long result = 0L;
     static BYTE parms[] =
         VTS_PVARIANT;
-    InvokeHelper(0x81, DISPATCH_METHOD, VT_I4, (void*)&result, parms,
+    CustomInvokeHelper(0x81, DISPATCH_METHOD, VT_I4, (void*)&result, parms,
         Unit);
     return result;
 }
@@ -5932,7 +5932,7 @@ void Range::InsertDateTime(VARIANT* DateTimeFormat, VARIANT* InsertAsField, VARI
 {
     static BYTE parms[] =
         VTS_PVARIANT VTS_PVARIANT VTS_PVARIANT;
-    InvokeHelper(0xa3, DISPATCH_METHOD, VT_EMPTY, nullptr, parms,
+    CustomInvokeHelper(0xa3, DISPATCH_METHOD, VT_EMPTY, nullptr, parms,
          DateTimeFormat, InsertAsField, InsertAsFullWidth);
 }
 
@@ -5940,7 +5940,7 @@ void Range::InsertSymbol(long CharacterNumber, VARIANT* Font, VARIANT* Unicode, 
 {
     static BYTE parms[] =
         VTS_I4 VTS_PVARIANT VTS_PVARIANT VTS_PVARIANT;
-    InvokeHelper(0xa4, DISPATCH_METHOD, VT_EMPTY, nullptr, parms,
+    CustomInvokeHelper(0xa4, DISPATCH_METHOD, VT_EMPTY, nullptr, parms,
          CharacterNumber, Font, Unicode, Bias);
 }
 
@@ -5948,7 +5948,7 @@ void Range::InsertCrossReference(VARIANT* ReferenceType, long ReferenceKind, VAR
 {
     static BYTE parms[] =
         VTS_PVARIANT VTS_I4 VTS_PVARIANT VTS_PVARIANT VTS_PVARIANT;
-    InvokeHelper(0xa5, DISPATCH_METHOD, VT_EMPTY, nullptr, parms,
+    CustomInvokeHelper(0xa5, DISPATCH_METHOD, VT_EMPTY, nullptr, parms,
          ReferenceType, ReferenceKind, ReferenceItem, InsertAsHyperlink, IncludePosition);
 }
 
@@ -5956,7 +5956,7 @@ void Range::InsertCaption(VARIANT* Label, VARIANT* Title, VARIANT* TitleAutoText
 {
     static BYTE parms[] =
         VTS_PVARIANT VTS_PVARIANT VTS_PVARIANT VTS_PVARIANT;
-    InvokeHelper(0xa6, DISPATCH_METHOD, VT_EMPTY, nullptr, parms,
+    CustomInvokeHelper(0xa6, DISPATCH_METHOD, VT_EMPTY, nullptr, parms,
          Label, Title, TitleAutoText, Position);
 }
 
@@ -6006,7 +6006,7 @@ LPDISPATCH Range::GoTo(VARIANT* What, VARIANT* Which, VARIANT* Count, VARIANT* N
     LPDISPATCH result;
     static BYTE parms[] =
         VTS_PVARIANT VTS_PVARIANT VTS_PVARIANT VTS_PVARIANT;
-    InvokeHelper(0xad, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
+    CustomInvokeHelper(0xad, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
         What, Which, Count, Name);
     return result;
 }
@@ -6035,7 +6035,7 @@ void Range::PasteSpecial(VARIANT* IconIndex, VARIANT* Link, VARIANT* Placement, 
 {
     static BYTE parms[] =
         VTS_PVARIANT VTS_PVARIANT VTS_PVARIANT VTS_PVARIANT VTS_PVARIANT VTS_PVARIANT VTS_PVARIANT;
-    InvokeHelper(0xb0, DISPATCH_METHOD, VT_EMPTY, nullptr, parms,
+    CustomInvokeHelper(0xb0, DISPATCH_METHOD, VT_EMPTY, nullptr, parms,
          IconIndex, Link, Placement, DisplayAsIcon, DataType, IconFileName, IconLabel);
 }
 
@@ -6071,7 +6071,7 @@ void Range::SubscribeTo(LPCTSTR Edition, VARIANT* Format)
 {
     static BYTE parms[] =
         VTS_BSTR VTS_PVARIANT;
-    InvokeHelper(0xb5, DISPATCH_METHOD, VT_EMPTY, nullptr, parms,
+    CustomInvokeHelper(0xb5, DISPATCH_METHOD, VT_EMPTY, nullptr, parms,
          Edition, Format);
 }
 
@@ -6079,7 +6079,7 @@ void Range::CreatePublisher(VARIANT* Edition, VARIANT* ContainsPICT, VARIANT* Co
 {
     static BYTE parms[] =
         VTS_PVARIANT VTS_PVARIANT VTS_PVARIANT VTS_PVARIANT;
-    InvokeHelper(0xb6, DISPATCH_METHOD, VT_EMPTY, nullptr, parms,
+    CustomInvokeHelper(0xb6, DISPATCH_METHOD, VT_EMPTY, nullptr, parms,
          Edition, ContainsPICT, ContainsRTF, ContainsText);
 }
 
@@ -6244,7 +6244,7 @@ void ListFormat::RemoveNumbers(VARIANT* NumberType)
 {
     static BYTE parms[] =
         VTS_PVARIANT;
-    InvokeHelper(0xb9, DISPATCH_METHOD, VT_EMPTY, nullptr, parms,
+    CustomInvokeHelper(0xb9, DISPATCH_METHOD, VT_EMPTY, nullptr, parms,
          NumberType);
 }
 
@@ -6252,7 +6252,7 @@ void ListFormat::ConvertNumbersToText(VARIANT* NumberType)
 {
     static BYTE parms[] =
         VTS_PVARIANT;
-    InvokeHelper(0xba, DISPATCH_METHOD, VT_EMPTY, nullptr, parms,
+    CustomInvokeHelper(0xba, DISPATCH_METHOD, VT_EMPTY, nullptr, parms,
          NumberType);
 }
 
@@ -6261,7 +6261,7 @@ long ListFormat::CountNumberedItems(VARIANT* NumberType, VARIANT* Level)
     long result = 0L;
     static BYTE parms[] =
         VTS_PVARIANT VTS_PVARIANT;
-    InvokeHelper(0xbb, DISPATCH_METHOD, VT_I4, (void*)&result, parms,
+    CustomInvokeHelper(0xbb, DISPATCH_METHOD, VT_I4, (void*)&result, parms,
         NumberType, Level);
     return result;
 }
@@ -6285,7 +6285,7 @@ void ListFormat::ApplyListTemplate(LPDISPATCH ListTemplate, VARIANT* ContinuePre
 {
     static BYTE parms[] =
         VTS_DISPATCH VTS_PVARIANT VTS_PVARIANT;
-    InvokeHelper(0xbf, DISPATCH_METHOD, VT_EMPTY, nullptr, parms,
+    CustomInvokeHelper(0xbf, DISPATCH_METHOD, VT_EMPTY, nullptr, parms,
          ListTemplate, ContinuePreviousList, ApplyTo);
 }
 
@@ -6461,7 +6461,7 @@ void Find::SetStyle(VARIANT* newValue)
 {
     static BYTE parms[] =
         VTS_PVARIANT;
-    InvokeHelper(0x13, DISPATCH_PROPERTYPUT, VT_EMPTY, nullptr, parms,
+    CustomInvokeHelper(0x13, DISPATCH_PROPERTYPUT, VT_EMPTY, nullptr, parms,
          newValue);
 }
 
@@ -6665,7 +6665,7 @@ void Replacement::SetStyle(VARIANT* newValue)
 {
     static BYTE parms[] =
         VTS_PVARIANT;
-    InvokeHelper(0xc, DISPATCH_PROPERTYPUT, VT_EMPTY, nullptr, parms,
+    CustomInvokeHelper(0xc, DISPATCH_PROPERTYPUT, VT_EMPTY, nullptr, parms,
          newValue);
 }
 
@@ -7009,7 +7009,7 @@ LPDISPATCH Sections::Add(VARIANT* Range, VARIANT* Start)
     LPDISPATCH result;
     static BYTE parms[] =
         VTS_PVARIANT VTS_PVARIANT;
-    InvokeHelper(0x5, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
+    CustomInvokeHelper(0x5, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
         Range, Start);
     return result;
 }
@@ -7219,7 +7219,7 @@ void Paragraphs::SetStyle(VARIANT* newValue)
 {
     static BYTE parms[] =
         VTS_PVARIANT;
-    InvokeHelper(0x64, DISPATCH_PROPERTYPUT, VT_EMPTY, nullptr, parms,
+    CustomInvokeHelper(0x64, DISPATCH_PROPERTYPUT, VT_EMPTY, nullptr, parms,
          newValue);
 }
 
@@ -7470,7 +7470,7 @@ LPDISPATCH Paragraphs::Add(VARIANT* Range)
     LPDISPATCH result;
     static BYTE parms[] =
         VTS_PVARIANT;
-    InvokeHelper(0x5, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
+    CustomInvokeHelper(0x5, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
         Range);
     return result;
 }
@@ -7645,7 +7645,7 @@ void Paragraph::SetStyle(VARIANT* newValue)
 {
     static BYTE parms[] =
         VTS_PVARIANT;
-    InvokeHelper(0x64, DISPATCH_PROPERTYPUT, VT_EMPTY, nullptr, parms,
+    CustomInvokeHelper(0x64, DISPATCH_PROPERTYPUT, VT_EMPTY, nullptr, parms,
          newValue);
 }
 
@@ -7937,7 +7937,7 @@ LPDISPATCH Paragraph::Next(VARIANT* Count)
     LPDISPATCH result;
     static BYTE parms[] =
         VTS_PVARIANT;
-    InvokeHelper(0x144, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
+    CustomInvokeHelper(0x144, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
         Count);
     return result;
 }
@@ -7947,7 +7947,7 @@ LPDISPATCH Paragraph::Previous(VARIANT* Count)
     LPDISPATCH result;
     static BYTE parms[] =
         VTS_PVARIANT;
-    InvokeHelper(0x145, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
+    CustomInvokeHelper(0x145, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
         Count);
     return result;
 }
@@ -8114,7 +8114,7 @@ LPDISPATCH TabStops::Item(VARIANT* Index)
     LPDISPATCH result;
     static BYTE parms[] =
         VTS_PVARIANT;
-    InvokeHelper(0x0, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
+    CustomInvokeHelper(0x0, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
         Index);
     return result;
 }
@@ -8124,7 +8124,7 @@ LPDISPATCH TabStops::Add(float Position, VARIANT* Alignment, VARIANT* Leader)
     LPDISPATCH result;
     static BYTE parms[] =
         VTS_R4 VTS_PVARIANT VTS_PVARIANT;
-    InvokeHelper(0x64, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
+    CustomInvokeHelper(0x64, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
         Position, Alignment, Leader);
     return result;
 }
@@ -8291,7 +8291,7 @@ void _ParagraphFormat::SetStyle(VARIANT* newValue)
 {
     static BYTE parms[] =
         VTS_PVARIANT;
-    InvokeHelper(0x64, DISPATCH_PROPERTYPUT, VT_EMPTY, nullptr, parms,
+    CustomInvokeHelper(0x64, DISPATCH_PROPERTYPUT, VT_EMPTY, nullptr, parms,
          newValue);
 }
 
@@ -9170,7 +9170,7 @@ void Table::AutoFormat(VARIANT* Format, VARIANT* ApplyBorders, VARIANT* ApplySha
 {
     static BYTE parms[] =
         VTS_PVARIANT VTS_PVARIANT VTS_PVARIANT VTS_PVARIANT VTS_PVARIANT VTS_PVARIANT VTS_PVARIANT VTS_PVARIANT VTS_PVARIANT VTS_PVARIANT;
-    InvokeHelper(0xe, DISPATCH_METHOD, VT_EMPTY, nullptr, parms,
+    CustomInvokeHelper(0xe, DISPATCH_METHOD, VT_EMPTY, nullptr, parms,
          Format, ApplyBorders, ApplyShading, ApplyFont, ApplyColor, ApplyHeadingRows, ApplyLastRow, ApplyFirstColumn, ApplyLastColumn, AutoFit);
 }
 
@@ -9184,7 +9184,7 @@ LPDISPATCH Table::ConvertToText(VARIANT* Separator)
     LPDISPATCH result;
     static BYTE parms[] =
         VTS_PVARIANT;
-    InvokeHelper(0x10, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
+    CustomInvokeHelper(0x10, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
         Separator);
     return result;
 }
@@ -9204,7 +9204,7 @@ LPDISPATCH Table::Split(VARIANT* BeforeRow)
     LPDISPATCH result;
     static BYTE parms[] =
         VTS_PVARIANT;
-    InvokeHelper(0x12, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
+    CustomInvokeHelper(0x12, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
         BeforeRow);
     return result;
 }
@@ -9440,7 +9440,7 @@ LPDISPATCH Row::ConvertToText(VARIANT* Separator)
     LPDISPATCH result;
     static BYTE parms[] =
         VTS_PVARIANT;
-    InvokeHelper(0x10, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
+    CustomInvokeHelper(0x10, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
         Separator);
     return result;
 }
@@ -9575,7 +9575,7 @@ void Column::Sort(VARIANT* ExcludeHeader, VARIANT* SortFieldType, VARIANT* SortO
 {
     static BYTE parms[] =
         VTS_PVARIANT VTS_PVARIANT VTS_PVARIANT VTS_PVARIANT VTS_PVARIANT;
-    InvokeHelper(0xcb, DISPATCH_METHOD, VT_EMPTY, nullptr, parms,
+    CustomInvokeHelper(0xcb, DISPATCH_METHOD, VT_EMPTY, nullptr, parms,
          ExcludeHeader, SortFieldType, SortOrder, CaseSensitive, LanguageID);
 }
 
@@ -9743,7 +9743,7 @@ void Cell::Delete(VARIANT* ShiftCells)
 {
     static BYTE parms[] =
         VTS_PVARIANT;
-    InvokeHelper(0xc8, DISPATCH_METHOD, VT_EMPTY, nullptr, parms,
+    CustomInvokeHelper(0xc8, DISPATCH_METHOD, VT_EMPTY, nullptr, parms,
          ShiftCells);
 }
 
@@ -9751,7 +9751,7 @@ void Cell::Formula(VARIANT* Formula, VARIANT* NumFormat)
 {
     static BYTE parms[] =
         VTS_PVARIANT VTS_PVARIANT;
-    InvokeHelper(0xc9, DISPATCH_METHOD, VT_EMPTY, nullptr, parms,
+    CustomInvokeHelper(0xc9, DISPATCH_METHOD, VT_EMPTY, nullptr, parms,
          Formula, NumFormat);
 }
 
@@ -9767,7 +9767,7 @@ void Cell::SetHeight(VARIANT* RowHeight, long HeightRule)
 {
     static BYTE parms[] =
         VTS_PVARIANT VTS_I4;
-    InvokeHelper(0xcb, DISPATCH_METHOD, VT_EMPTY, nullptr, parms,
+    CustomInvokeHelper(0xcb, DISPATCH_METHOD, VT_EMPTY, nullptr, parms,
          RowHeight, HeightRule);
 }
 
@@ -9783,7 +9783,7 @@ void Cell::Split(VARIANT* NumRows, VARIANT* NumColumns)
 {
     static BYTE parms[] =
         VTS_PVARIANT VTS_PVARIANT;
-    InvokeHelper(0xcd, DISPATCH_METHOD, VT_EMPTY, nullptr, parms,
+    CustomInvokeHelper(0xcd, DISPATCH_METHOD, VT_EMPTY, nullptr, parms,
          NumRows, NumColumns);
 }
 
@@ -10044,7 +10044,7 @@ LPDISPATCH Rows::Add(VARIANT* BeforeRow)
     LPDISPATCH result;
     static BYTE parms[] =
         VTS_PVARIANT;
-    InvokeHelper(0x64, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
+    CustomInvokeHelper(0x64, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
         BeforeRow);
     return result;
 }
@@ -10080,7 +10080,7 @@ LPDISPATCH Rows::ConvertToText(VARIANT* Separator)
     LPDISPATCH result;
     static BYTE parms[] =
         VTS_PVARIANT;
-    InvokeHelper(0x10, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
+    CustomInvokeHelper(0x10, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
         Separator);
     return result;
 }
@@ -10194,7 +10194,7 @@ LPDISPATCH Columns::Add(VARIANT* BeforeColumn)
     LPDISPATCH result;
     static BYTE parms[] =
         VTS_PVARIANT;
-    InvokeHelper(0x5, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
+    CustomInvokeHelper(0x5, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
         BeforeColumn);
     return result;
 }
@@ -10362,7 +10362,7 @@ LPDISPATCH Cells::Add(VARIANT* BeforeCell)
     LPDISPATCH result;
     static BYTE parms[] =
         VTS_PVARIANT;
-    InvokeHelper(0x4, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
+    CustomInvokeHelper(0x4, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
         BeforeCell);
     return result;
 }
@@ -10371,7 +10371,7 @@ void Cells::Delete(VARIANT* ShiftCells)
 {
     static BYTE parms[] =
         VTS_PVARIANT;
-    InvokeHelper(0xc8, DISPATCH_METHOD, VT_EMPTY, nullptr, parms,
+    CustomInvokeHelper(0xc8, DISPATCH_METHOD, VT_EMPTY, nullptr, parms,
          ShiftCells);
 }
 
@@ -10387,7 +10387,7 @@ void Cells::SetHeight(VARIANT* RowHeight, long HeightRule)
 {
     static BYTE parms[] =
         VTS_PVARIANT VTS_I4;
-    InvokeHelper(0xcb, DISPATCH_METHOD, VT_EMPTY, nullptr, parms,
+    CustomInvokeHelper(0xcb, DISPATCH_METHOD, VT_EMPTY, nullptr, parms,
          RowHeight, HeightRule);
 }
 
@@ -10400,7 +10400,7 @@ void Cells::Split(VARIANT* NumRows, VARIANT* NumColumns, VARIANT* MergeBeforeSpl
 {
     static BYTE parms[] =
         VTS_PVARIANT VTS_PVARIANT VTS_PVARIANT;
-    InvokeHelper(0xcd, DISPATCH_METHOD, VT_EMPTY, nullptr, parms,
+    CustomInvokeHelper(0xcd, DISPATCH_METHOD, VT_EMPTY, nullptr, parms,
          NumRows, NumColumns, MergeBeforeSplit);
 }
 
@@ -10612,7 +10612,7 @@ LPDISPATCH AutoCorrectEntries::Item(VARIANT* Index)
     LPDISPATCH result;
     static BYTE parms[] =
         VTS_PVARIANT;
-    InvokeHelper(0x0, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
+    CustomInvokeHelper(0x0, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
         Index);
     return result;
 }
@@ -10761,7 +10761,7 @@ LPDISPATCH FirstLetterExceptions::Item(VARIANT* Index)
     LPDISPATCH result;
     static BYTE parms[] =
         VTS_PVARIANT;
-    InvokeHelper(0x0, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
+    CustomInvokeHelper(0x0, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
         Index);
     return result;
 }
@@ -10862,7 +10862,7 @@ LPDISPATCH TwoInitialCapsExceptions::Item(VARIANT* Index)
     LPDISPATCH result;
     static BYTE parms[] =
         VTS_PVARIANT;
-    InvokeHelper(0x0, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
+    CustomInvokeHelper(0x0, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
         Index);
     return result;
 }
@@ -11054,7 +11054,7 @@ LPDISPATCH Footnotes::Add(LPDISPATCH Range, VARIANT* Reference, VARIANT* Text)
     LPDISPATCH result;
     static BYTE parms[] =
         VTS_DISPATCH VTS_PVARIANT VTS_PVARIANT;
-    InvokeHelper(0x4, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
+    CustomInvokeHelper(0x4, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
         Range, Reference, Text);
     return result;
 }
@@ -11218,7 +11218,7 @@ LPDISPATCH Endnotes::Add(LPDISPATCH Range, VARIANT* Reference, VARIANT* Text)
     LPDISPATCH result;
     static BYTE parms[] =
         VTS_DISPATCH VTS_PVARIANT VTS_PVARIANT;
-    InvokeHelper(0x4, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
+    CustomInvokeHelper(0x4, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
         Range, Reference, Text);
     return result;
 }
@@ -11316,7 +11316,7 @@ LPDISPATCH Comments::Add(LPDISPATCH Range, VARIANT* Text)
     LPDISPATCH result;
     static BYTE parms[] =
         VTS_DISPATCH VTS_PVARIANT;
-    InvokeHelper(0x4, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
+    CustomInvokeHelper(0x4, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
         Range, Text);
     return result;
 }
@@ -12184,7 +12184,7 @@ LPDISPATCH AutoTextEntries::Item(VARIANT* Index)
     LPDISPATCH result;
     static BYTE parms[] =
         VTS_PVARIANT;
-    InvokeHelper(0x0, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
+    CustomInvokeHelper(0x0, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
         Index);
     return result;
 }
@@ -12287,7 +12287,7 @@ LPDISPATCH AutoTextEntry::Insert(LPDISPATCH Where, VARIANT* RichText)
     LPDISPATCH result;
     static BYTE parms[] =
         VTS_DISPATCH VTS_PVARIANT;
-    InvokeHelper(0x66, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
+    CustomInvokeHelper(0x66, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
         Where, RichText);
     return result;
 }
@@ -12460,7 +12460,7 @@ void System::Connect(LPCTSTR Path, VARIANT* Drive, VARIANT* Password)
 {
     static BYTE parms[] =
         VTS_BSTR VTS_PVARIANT VTS_PVARIANT;
-    InvokeHelper(0x66, DISPATCH_METHOD, VT_EMPTY, nullptr, parms,
+    CustomInvokeHelper(0x66, DISPATCH_METHOD, VT_EMPTY, nullptr, parms,
          Path, Drive, Password);
 }
 
@@ -12610,7 +12610,7 @@ void OLEFormat::DoVerb(VARIANT* VerbIndex)
 {
     static BYTE parms[] =
         VTS_PVARIANT;
-    InvokeHelper(0x6d, DISPATCH_METHOD, VT_EMPTY, nullptr, parms,
+    CustomInvokeHelper(0x6d, DISPATCH_METHOD, VT_EMPTY, nullptr, parms,
          VerbIndex);
 }
 
@@ -12618,7 +12618,7 @@ void OLEFormat::ConvertTo(VARIANT* ClassType, VARIANT* DisplayAsIcon, VARIANT* I
 {
     static BYTE parms[] =
         VTS_PVARIANT VTS_PVARIANT VTS_PVARIANT VTS_PVARIANT VTS_PVARIANT;
-    InvokeHelper(0x6e, DISPATCH_METHOD, VT_EMPTY, nullptr, parms,
+    CustomInvokeHelper(0x6e, DISPATCH_METHOD, VT_EMPTY, nullptr, parms,
          ClassType, DisplayAsIcon, IconFileName, IconIndex, IconLabel);
 }
 
@@ -12945,7 +12945,7 @@ LPDISPATCH Fields::Add(LPDISPATCH Range, VARIANT* Type, VARIANT* Text, VARIANT* 
     LPDISPATCH result;
     static BYTE parms[] =
         VTS_DISPATCH VTS_PVARIANT VTS_PVARIANT VTS_PVARIANT;
-    InvokeHelper(0x69, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
+    CustomInvokeHelper(0x69, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
         Range, Type, Text, PreserveFormatting);
     return result;
 }
@@ -13239,7 +13239,7 @@ LPDISPATCH Styles::Item(VARIANT* Index)
     LPDISPATCH result;
     static BYTE parms[] =
         VTS_PVARIANT;
-    InvokeHelper(0x0, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
+    CustomInvokeHelper(0x0, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
         Index);
     return result;
 }
@@ -13249,7 +13249,7 @@ LPDISPATCH Styles::Add(LPCTSTR Name, VARIANT* Type)
     LPDISPATCH result;
     static BYTE parms[] =
         VTS_BSTR VTS_PVARIANT;
-    InvokeHelper(0x64, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
+    CustomInvokeHelper(0x64, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
         Name, Type);
     return result;
 }
@@ -13304,7 +13304,7 @@ void Style::SetBaseStyle(VARIANT* newValue)
 {
     static BYTE parms[] =
         VTS_PVARIANT;
-    InvokeHelper(0x1, DISPATCH_PROPERTYPUT, VT_EMPTY, nullptr, parms,
+    CustomInvokeHelper(0x1, DISPATCH_PROPERTYPUT, VT_EMPTY, nullptr, parms,
          newValue);
 }
 
@@ -13340,7 +13340,7 @@ void Style::SetNextParagraphStyle(VARIANT* newValue)
 {
     static BYTE parms[] =
         VTS_PVARIANT;
-    InvokeHelper(0x5, DISPATCH_PROPERTYPUT, VT_EMPTY, nullptr, parms,
+    CustomInvokeHelper(0x5, DISPATCH_PROPERTYPUT, VT_EMPTY, nullptr, parms,
          newValue);
 }
 
@@ -13478,7 +13478,7 @@ void Style::LinkToListTemplate(LPDISPATCH ListTemplate, VARIANT* ListLevelNumber
 {
     static BYTE parms[] =
         VTS_DISPATCH VTS_PVARIANT;
-    InvokeHelper(0x65, DISPATCH_METHOD, VT_EMPTY, nullptr, parms,
+    CustomInvokeHelper(0x65, DISPATCH_METHOD, VT_EMPTY, nullptr, parms,
          ListTemplate, ListLevelNumber);
 }
 
@@ -13856,7 +13856,7 @@ LPDISPATCH FormFields::Item(VARIANT* Index)
     LPDISPATCH result;
     static BYTE parms[] =
         VTS_PVARIANT;
-    InvokeHelper(0x0, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
+    CustomInvokeHelper(0x0, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
         Index);
     return result;
 }
@@ -14198,7 +14198,7 @@ void TextInput::EditType(long Type, VARIANT* Default, VARIANT* Format, VARIANT* 
 {
     static BYTE parms[] =
         VTS_I4 VTS_PVARIANT VTS_PVARIANT VTS_PVARIANT;
-    InvokeHelper(0x66, DISPATCH_METHOD, VT_EMPTY, nullptr, parms,
+    CustomInvokeHelper(0x66, DISPATCH_METHOD, VT_EMPTY, nullptr, parms,
          Type, Default, Format, Enabled);
 }
 
@@ -14404,7 +14404,7 @@ LPDISPATCH ListEntries::Item(VARIANT* Index)
     LPDISPATCH result;
     static BYTE parms[] =
         VTS_PVARIANT;
-    InvokeHelper(0x0, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
+    CustomInvokeHelper(0x0, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
         Index);
     return result;
 }
@@ -14414,7 +14414,7 @@ LPDISPATCH ListEntries::Add(LPCTSTR Name, VARIANT* Index)
     LPDISPATCH result;
     static BYTE parms[] =
         VTS_BSTR VTS_PVARIANT;
-    InvokeHelper(0x65, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
+    CustomInvokeHelper(0x65, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
         Name, Index);
     return result;
 }
@@ -14554,7 +14554,7 @@ LPDISPATCH TablesOfFigures::MarkEntry(LPDISPATCH Range, VARIANT* Entry, VARIANT*
     LPDISPATCH result;
     static BYTE parms[] =
         VTS_DISPATCH VTS_PVARIANT VTS_PVARIANT VTS_PVARIANT VTS_PVARIANT;
-    InvokeHelper(0x65, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
+    CustomInvokeHelper(0x65, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
         Range, Entry, EntryAutoText, TableID, Level);
     return result;
 }
@@ -14916,7 +14916,7 @@ void MailMerge::CreateDataSource(VARIANT* Name, VARIANT* PasswordDocument, VARIA
 {
     static BYTE parms[] =
         VTS_PVARIANT VTS_PVARIANT VTS_PVARIANT VTS_PVARIANT VTS_PVARIANT VTS_PVARIANT VTS_PVARIANT VTS_PVARIANT VTS_PVARIANT;
-    InvokeHelper(0x65, DISPATCH_METHOD, VT_EMPTY, nullptr, parms,
+    CustomInvokeHelper(0x65, DISPATCH_METHOD, VT_EMPTY, nullptr, parms,
          Name, PasswordDocument, WritePasswordDocument, HeaderRecord, MSQuery, SQLStatement, SQLStatement1, Connection, LinkToSource);
 }
 
@@ -14924,7 +14924,7 @@ void MailMerge::CreateHeaderSource(LPCTSTR Name, VARIANT* PasswordDocument, VARI
 {
     static BYTE parms[] =
         VTS_BSTR VTS_PVARIANT VTS_PVARIANT VTS_PVARIANT;
-    InvokeHelper(0x66, DISPATCH_METHOD, VT_EMPTY, nullptr, parms,
+    CustomInvokeHelper(0x66, DISPATCH_METHOD, VT_EMPTY, nullptr, parms,
          Name, PasswordDocument, WritePasswordDocument, HeaderRecord);
 }
 
@@ -14950,7 +14950,7 @@ void MailMerge::Execute(VARIANT* Pause)
 {
     static BYTE parms[] =
         VTS_PVARIANT;
-    InvokeHelper(0x69, DISPATCH_METHOD, VT_EMPTY, nullptr, parms,
+    CustomInvokeHelper(0x69, DISPATCH_METHOD, VT_EMPTY, nullptr, parms,
          Pause);
 }
 
@@ -15045,7 +15045,7 @@ LPDISPATCH MailMergeFields::AddAsk(LPDISPATCH Range, LPCTSTR Name, VARIANT* Prom
     LPDISPATCH result;
     static BYTE parms[] =
         VTS_DISPATCH VTS_BSTR VTS_PVARIANT VTS_PVARIANT VTS_PVARIANT;
-    InvokeHelper(0x66, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
+    CustomInvokeHelper(0x66, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
         Range, Name, Prompt, DefaultAskText, AskOnce);
     return result;
 }
@@ -15055,7 +15055,7 @@ LPDISPATCH MailMergeFields::AddFillIn(LPDISPATCH Range, VARIANT* Prompt, VARIANT
     LPDISPATCH result;
     static BYTE parms[] =
         VTS_DISPATCH VTS_PVARIANT VTS_PVARIANT VTS_PVARIANT;
-    InvokeHelper(0x67, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
+    CustomInvokeHelper(0x67, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
         Range, Prompt, DefaultFillInText, AskOnce);
     return result;
 }
@@ -15065,7 +15065,7 @@ LPDISPATCH MailMergeFields::AddIf(LPDISPATCH Range, LPCTSTR MergeField, long Com
     LPDISPATCH result;
     static BYTE parms[] =
         VTS_DISPATCH VTS_BSTR VTS_I4 VTS_PVARIANT VTS_PVARIANT VTS_PVARIANT VTS_PVARIANT VTS_PVARIANT;
-    InvokeHelper(0x68, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
+    CustomInvokeHelper(0x68, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
         Range, MergeField, Comparison, CompareTo, TrueAutoText, TrueText, FalseAutoText, FalseText);
     return result;
 }
@@ -15105,7 +15105,7 @@ LPDISPATCH MailMergeFields::AddNextIf(LPDISPATCH Range, LPCTSTR MergeField, long
     LPDISPATCH result;
     static BYTE parms[] =
         VTS_DISPATCH VTS_BSTR VTS_I4 VTS_PVARIANT;
-    InvokeHelper(0x6c, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
+    CustomInvokeHelper(0x6c, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
         Range, MergeField, Comparison, CompareTo);
     return result;
 }
@@ -15115,7 +15115,7 @@ LPDISPATCH MailMergeFields::AddSet(LPDISPATCH Range, LPCTSTR Name, VARIANT* Valu
     LPDISPATCH result;
     static BYTE parms[] =
         VTS_DISPATCH VTS_BSTR VTS_PVARIANT VTS_PVARIANT;
-    InvokeHelper(0x6d, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
+    CustomInvokeHelper(0x6d, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
         Range, Name, ValueText, ValueAutoText);
     return result;
 }
@@ -15125,7 +15125,7 @@ LPDISPATCH MailMergeFields::AddSkipIf(LPDISPATCH Range, LPCTSTR MergeField, long
     LPDISPATCH result;
     static BYTE parms[] =
         VTS_DISPATCH VTS_BSTR VTS_I4 VTS_PVARIANT;
-    InvokeHelper(0x6e, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
+    CustomInvokeHelper(0x6e, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
         Range, MergeField, Comparison, CompareTo);
     return result;
 }
@@ -15411,7 +15411,7 @@ LPDISPATCH MailMergeFieldNames::Item(VARIANT* Index)
     LPDISPATCH result;
     static BYTE parms[] =
         VTS_PVARIANT;
-    InvokeHelper(0x0, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
+    CustomInvokeHelper(0x0, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
         Index);
     return result;
 }
@@ -15497,7 +15497,7 @@ LPDISPATCH MailMergeDataFields::Item(VARIANT* Index)
     LPDISPATCH result;
     static BYTE parms[] =
         VTS_PVARIANT;
-    InvokeHelper(0x0, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
+    CustomInvokeHelper(0x0, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
         Index);
     return result;
 }
@@ -15900,7 +15900,7 @@ LPDISPATCH MailingLabel::CreateNewDocument(VARIANT* Name, VARIANT* Address, VARI
     LPDISPATCH result;
     static BYTE parms[] =
         VTS_PVARIANT VTS_PVARIANT VTS_PVARIANT VTS_PVARIANT VTS_PVARIANT;
-    InvokeHelper(0x65, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
+    CustomInvokeHelper(0x65, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
         Name, Address, AutoText, ExtractAddress, LaserTray);
     return result;
 }
@@ -15909,7 +15909,7 @@ void MailingLabel::PrintOut(VARIANT* Name, VARIANT* Address, VARIANT* ExtractAdd
 {
     static BYTE parms[] =
         VTS_PVARIANT VTS_PVARIANT VTS_PVARIANT VTS_PVARIANT VTS_PVARIANT VTS_PVARIANT VTS_PVARIANT;
-    InvokeHelper(0x66, DISPATCH_METHOD, VT_EMPTY, nullptr, parms,
+    CustomInvokeHelper(0x66, DISPATCH_METHOD, VT_EMPTY, nullptr, parms,
          Name, Address, ExtractAddress, LaserTray, SingleLabel, Row, Column);
 }
 
@@ -15956,7 +15956,7 @@ LPDISPATCH CustomLabels::Item(VARIANT* Index)
     LPDISPATCH result;
     static BYTE parms[] =
         VTS_PVARIANT;
-    InvokeHelper(0x0, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
+    CustomInvokeHelper(0x0, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
         Index);
     return result;
 }
@@ -15966,7 +15966,7 @@ LPDISPATCH CustomLabels::Add(LPCTSTR Name, VARIANT* DotMatrix)
     LPDISPATCH result;
     static BYTE parms[] =
         VTS_BSTR VTS_PVARIANT;
-    InvokeHelper(0x65, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
+    CustomInvokeHelper(0x65, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
         Name, DotMatrix);
     return result;
 }
@@ -16239,7 +16239,7 @@ LPDISPATCH TablesOfContents::Add(LPDISPATCH Range, VARIANT* UseHeadingStyles, VA
     LPDISPATCH result;
     static BYTE parms[] =
         VTS_DISPATCH VTS_PVARIANT VTS_PVARIANT VTS_PVARIANT VTS_PVARIANT VTS_PVARIANT VTS_PVARIANT VTS_PVARIANT VTS_PVARIANT;
-    InvokeHelper(0x64, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
+    CustomInvokeHelper(0x64, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
         Range, UseHeadingStyles, UpperHeadingLevel, LowerHeadingLevel, UseFields, TableID, RightAlignPageNumbers, IncludePageNumbers, AddedStyles);
     return result;
 }
@@ -16249,7 +16249,7 @@ LPDISPATCH TablesOfContents::MarkEntry(LPDISPATCH Range, VARIANT* Entry, VARIANT
     LPDISPATCH result;
     static BYTE parms[] =
         VTS_DISPATCH VTS_PVARIANT VTS_PVARIANT VTS_PVARIANT VTS_PVARIANT;
-    InvokeHelper(0x65, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
+    CustomInvokeHelper(0x65, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
         Range, Entry, EntryAutoText, TableID, Level);
     return result;
 }
@@ -16514,7 +16514,7 @@ LPDISPATCH TablesOfAuthorities::MarkCitation(LPDISPATCH Range, LPCTSTR ShortCita
     LPDISPATCH result;
     static BYTE parms[] =
         VTS_DISPATCH VTS_BSTR VTS_PVARIANT VTS_PVARIANT VTS_PVARIANT;
-    InvokeHelper(0x65, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
+    CustomInvokeHelper(0x65, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
         Range, ShortCitation, LongCitation, LongCitationAutoText, Category);
     return result;
 }
@@ -16523,7 +16523,7 @@ void TablesOfAuthorities::MarkAllCitations(LPCTSTR ShortCitation, VARIANT* LongC
 {
     static BYTE parms[] =
         VTS_BSTR VTS_PVARIANT VTS_PVARIANT VTS_PVARIANT;
-    InvokeHelper(0x66, DISPATCH_METHOD, VT_EMPTY, nullptr, parms,
+    CustomInvokeHelper(0x66, DISPATCH_METHOD, VT_EMPTY, nullptr, parms,
          ShortCitation, LongCitation, LongCitationAutoText, Category);
 }
 
@@ -16832,7 +16832,7 @@ long Dialog::Show(VARIANT* TimeOut)
     long result = 0L;
     static BYTE parms[] =
         VTS_PVARIANT;
-    InvokeHelper(0x150, DISPATCH_METHOD, VT_I4, (void*)&result, parms,
+    CustomInvokeHelper(0x150, DISPATCH_METHOD, VT_I4, (void*)&result, parms,
         TimeOut);
     return result;
 }
@@ -16842,7 +16842,7 @@ long Dialog::Display(VARIANT* TimeOut)
     long result = 0L;
     static BYTE parms[] =
         VTS_PVARIANT;
-    InvokeHelper(0x152, DISPATCH_METHOD, VT_I4, (void*)&result, parms,
+    CustomInvokeHelper(0x152, DISPATCH_METHOD, VT_I4, (void*)&result, parms,
         TimeOut);
     return result;
 }
@@ -17418,7 +17418,7 @@ LPDISPATCH TextColumns::Add(VARIANT* Width, VARIANT* Spacing, VARIANT* EvenlySpa
     LPDISPATCH result;
     static BYTE parms[] =
         VTS_PVARIANT VTS_PVARIANT VTS_PVARIANT;
-    InvokeHelper(0xc9, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
+    CustomInvokeHelper(0xc9, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
         Width, Spacing, EvenlySpaced);
     return result;
 }
@@ -17588,7 +17588,7 @@ void Selection::SetStyle(VARIANT* newValue)
 {
     static BYTE parms[] =
         VTS_PVARIANT;
-    InvokeHelper(0x8, DISPATCH_PROPERTYPUT, VT_EMPTY, nullptr, parms,
+    CustomInvokeHelper(0x8, DISPATCH_PROPERTYPUT, VT_EMPTY, nullptr, parms,
          newValue);
 }
 
@@ -18015,7 +18015,7 @@ void Selection::Collapse(VARIANT* Direction)
 {
     static BYTE parms[] =
         VTS_PVARIANT;
-    InvokeHelper(0x65, DISPATCH_METHOD, VT_EMPTY, nullptr, parms,
+    CustomInvokeHelper(0x65, DISPATCH_METHOD, VT_EMPTY, nullptr, parms,
          Direction);
 }
 
@@ -18040,7 +18040,7 @@ LPDISPATCH Selection::Next(VARIANT* Unit, VARIANT* Count)
     LPDISPATCH result;
     static BYTE parms[] =
         VTS_PVARIANT VTS_PVARIANT;
-    InvokeHelper(0x69, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
+    CustomInvokeHelper(0x69, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
         Unit, Count);
     return result;
 }
@@ -18050,7 +18050,7 @@ LPDISPATCH Selection::Previous(VARIANT* Unit, VARIANT* Count)
     LPDISPATCH result;
     static BYTE parms[] =
         VTS_PVARIANT VTS_PVARIANT;
-    InvokeHelper(0x6a, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
+    CustomInvokeHelper(0x6a, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
         Unit, Count);
     return result;
 }
@@ -18060,7 +18060,7 @@ long Selection::StartOf(VARIANT* Unit, VARIANT* Extend)
     long result = 0L;
     static BYTE parms[] =
         VTS_PVARIANT VTS_PVARIANT;
-    InvokeHelper(0x6b, DISPATCH_METHOD, VT_I4, (void*)&result, parms,
+    CustomInvokeHelper(0x6b, DISPATCH_METHOD, VT_I4, (void*)&result, parms,
         Unit, Extend);
     return result;
 }
@@ -18070,7 +18070,7 @@ long Selection::EndOf(VARIANT* Unit, VARIANT* Extend)
     long result = 0L;
     static BYTE parms[] =
         VTS_PVARIANT VTS_PVARIANT;
-    InvokeHelper(0x6c, DISPATCH_METHOD, VT_I4, (void*)&result, parms,
+    CustomInvokeHelper(0x6c, DISPATCH_METHOD, VT_I4, (void*)&result, parms,
         Unit, Extend);
     return result;
 }
@@ -18080,7 +18080,7 @@ long Selection::Move(VARIANT* Unit, VARIANT* Count)
     long result = 0L;
     static BYTE parms[] =
         VTS_PVARIANT VTS_PVARIANT;
-    InvokeHelper(0x6d, DISPATCH_METHOD, VT_I4, (void*)&result, parms,
+    CustomInvokeHelper(0x6d, DISPATCH_METHOD, VT_I4, (void*)&result, parms,
         Unit, Count);
     return result;
 }
@@ -18090,7 +18090,7 @@ long Selection::MoveStart(VARIANT* Unit, VARIANT* Count)
     long result = 0L;
     static BYTE parms[] =
         VTS_PVARIANT VTS_PVARIANT;
-    InvokeHelper(0x6e, DISPATCH_METHOD, VT_I4, (void*)&result, parms,
+    CustomInvokeHelper(0x6e, DISPATCH_METHOD, VT_I4, (void*)&result, parms,
         Unit, Count);
     return result;
 }
@@ -18100,7 +18100,7 @@ long Selection::MoveEnd(VARIANT* Unit, VARIANT* Count)
     long result = 0L;
     static BYTE parms[] =
         VTS_PVARIANT VTS_PVARIANT;
-    InvokeHelper(0x6f, DISPATCH_METHOD, VT_I4, (void*)&result, parms,
+    CustomInvokeHelper(0x6f, DISPATCH_METHOD, VT_I4, (void*)&result, parms,
         Unit, Count);
     return result;
 }
@@ -18110,7 +18110,7 @@ long Selection::MoveWhile(VARIANT* Cset, VARIANT* Count)
     long result = 0L;
     static BYTE parms[] =
         VTS_PVARIANT VTS_PVARIANT;
-    InvokeHelper(0x70, DISPATCH_METHOD, VT_I4, (void*)&result, parms,
+    CustomInvokeHelper(0x70, DISPATCH_METHOD, VT_I4, (void*)&result, parms,
         Cset, Count);
     return result;
 }
@@ -18120,7 +18120,7 @@ long Selection::MoveStartWhile(VARIANT* Cset, VARIANT* Count)
     long result = 0L;
     static BYTE parms[] =
         VTS_PVARIANT VTS_PVARIANT;
-    InvokeHelper(0x71, DISPATCH_METHOD, VT_I4, (void*)&result, parms,
+    CustomInvokeHelper(0x71, DISPATCH_METHOD, VT_I4, (void*)&result, parms,
         Cset, Count);
     return result;
 }
@@ -18130,7 +18130,7 @@ long Selection::MoveEndWhile(VARIANT* Cset, VARIANT* Count)
     long result = 0L;
     static BYTE parms[] =
         VTS_PVARIANT VTS_PVARIANT;
-    InvokeHelper(0x72, DISPATCH_METHOD, VT_I4, (void*)&result, parms,
+    CustomInvokeHelper(0x72, DISPATCH_METHOD, VT_I4, (void*)&result, parms,
         Cset, Count);
     return result;
 }
@@ -18140,7 +18140,7 @@ long Selection::MoveUntil(VARIANT* Cset, VARIANT* Count)
     long result = 0L;
     static BYTE parms[] =
         VTS_PVARIANT VTS_PVARIANT;
-    InvokeHelper(0x73, DISPATCH_METHOD, VT_I4, (void*)&result, parms,
+    CustomInvokeHelper(0x73, DISPATCH_METHOD, VT_I4, (void*)&result, parms,
         Cset, Count);
     return result;
 }
@@ -18150,7 +18150,7 @@ long Selection::MoveStartUntil(VARIANT* Cset, VARIANT* Count)
     long result = 0L;
     static BYTE parms[] =
         VTS_PVARIANT VTS_PVARIANT;
-    InvokeHelper(0x74, DISPATCH_METHOD, VT_I4, (void*)&result, parms,
+    CustomInvokeHelper(0x74, DISPATCH_METHOD, VT_I4, (void*)&result, parms,
         Cset, Count);
     return result;
 }
@@ -18160,7 +18160,7 @@ long Selection::MoveEndUntil(VARIANT* Cset, VARIANT* Count)
     long result = 0L;
     static BYTE parms[] =
         VTS_PVARIANT VTS_PVARIANT;
-    InvokeHelper(0x75, DISPATCH_METHOD, VT_I4, (void*)&result, parms,
+    CustomInvokeHelper(0x75, DISPATCH_METHOD, VT_I4, (void*)&result, parms,
         Cset, Count);
     return result;
 }
@@ -18184,7 +18184,7 @@ void Selection::InsertBreak(VARIANT* Type)
 {
     static BYTE parms[] =
         VTS_PVARIANT;
-    InvokeHelper(0x7a, DISPATCH_METHOD, VT_EMPTY, nullptr, parms,
+    CustomInvokeHelper(0x7a, DISPATCH_METHOD, VT_EMPTY, nullptr, parms,
          Type);
 }
 
@@ -18192,7 +18192,7 @@ void Selection::InsertFile(LPCTSTR FileName, VARIANT* Range, VARIANT* ConfirmCon
 {
     static BYTE parms[] =
         VTS_BSTR VTS_PVARIANT VTS_PVARIANT VTS_PVARIANT VTS_PVARIANT;
-    InvokeHelper(0x7b, DISPATCH_METHOD, VT_EMPTY, nullptr, parms,
+    CustomInvokeHelper(0x7b, DISPATCH_METHOD, VT_EMPTY, nullptr, parms,
          FileName, Range, ConfirmConversions, Link, Attachment);
 }
 
@@ -18221,7 +18221,7 @@ long Selection::Delete(VARIANT* Unit, VARIANT* Count)
     long result = 0L;
     static BYTE parms[] =
         VTS_PVARIANT VTS_PVARIANT;
-    InvokeHelper(0x7f, DISPATCH_METHOD, VT_I4, (void*)&result, parms,
+    CustomInvokeHelper(0x7f, DISPATCH_METHOD, VT_I4, (void*)&result, parms,
         Unit, Count);
     return result;
 }
@@ -18231,7 +18231,7 @@ long Selection::Expand(VARIANT* Unit)
     long result = 0L;
     static BYTE parms[] =
         VTS_PVARIANT;
-    InvokeHelper(0x81, DISPATCH_METHOD, VT_I4, (void*)&result, parms,
+    CustomInvokeHelper(0x81, DISPATCH_METHOD, VT_I4, (void*)&result, parms,
         Unit);
     return result;
 }
@@ -18261,7 +18261,7 @@ void Selection::InsertDateTime(VARIANT* DateTimeFormat, VARIANT* InsertAsField, 
 {
     static BYTE parms[] =
         VTS_PVARIANT VTS_PVARIANT VTS_PVARIANT;
-    InvokeHelper(0xa3, DISPATCH_METHOD, VT_EMPTY, nullptr, parms,
+    CustomInvokeHelper(0xa3, DISPATCH_METHOD, VT_EMPTY, nullptr, parms,
          DateTimeFormat, InsertAsField, InsertAsFullWidth);
 }
 
@@ -18269,7 +18269,7 @@ void Selection::InsertSymbol(long CharacterNumber, VARIANT* Font, VARIANT* Unico
 {
     static BYTE parms[] =
         VTS_I4 VTS_PVARIANT VTS_PVARIANT VTS_PVARIANT;
-    InvokeHelper(0xa4, DISPATCH_METHOD, VT_EMPTY, nullptr, parms,
+    CustomInvokeHelper(0xa4, DISPATCH_METHOD, VT_EMPTY, nullptr, parms,
          CharacterNumber, Font, Unicode, Bias);
 }
 
@@ -18277,7 +18277,7 @@ void Selection::InsertCrossReference(VARIANT* ReferenceType, long ReferenceKind,
 {
     static BYTE parms[] =
         VTS_PVARIANT VTS_I4 VTS_PVARIANT VTS_PVARIANT VTS_PVARIANT;
-    InvokeHelper(0xa5, DISPATCH_METHOD, VT_EMPTY, nullptr, parms,
+    CustomInvokeHelper(0xa5, DISPATCH_METHOD, VT_EMPTY, nullptr, parms,
          ReferenceType, ReferenceKind, ReferenceItem, InsertAsHyperlink, IncludePosition);
 }
 
@@ -18285,7 +18285,7 @@ void Selection::InsertCaption(VARIANT* Label, VARIANT* Title, VARIANT* TitleAuto
 {
     static BYTE parms[] =
         VTS_PVARIANT VTS_PVARIANT VTS_PVARIANT VTS_PVARIANT;
-    InvokeHelper(0xa6, DISPATCH_METHOD, VT_EMPTY, nullptr, parms,
+    CustomInvokeHelper(0xa6, DISPATCH_METHOD, VT_EMPTY, nullptr, parms,
          Label, Title, TitleAutoText, Position);
 }
 
@@ -18335,7 +18335,7 @@ LPDISPATCH Selection::GoTo(VARIANT* What, VARIANT* Which, VARIANT* Count, VARIAN
     LPDISPATCH result;
     static BYTE parms[] =
         VTS_PVARIANT VTS_PVARIANT VTS_PVARIANT VTS_PVARIANT;
-    InvokeHelper(0xad, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
+    CustomInvokeHelper(0xad, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
         What, Which, Count, Name);
     return result;
 }
@@ -18364,7 +18364,7 @@ void Selection::PasteSpecial(VARIANT* IconIndex, VARIANT* Link, VARIANT* Placeme
 {
     static BYTE parms[] =
         VTS_PVARIANT VTS_PVARIANT VTS_PVARIANT VTS_PVARIANT VTS_PVARIANT VTS_PVARIANT VTS_PVARIANT;
-    InvokeHelper(0xb0, DISPATCH_METHOD, VT_EMPTY, nullptr, parms,
+    CustomInvokeHelper(0xb0, DISPATCH_METHOD, VT_EMPTY, nullptr, parms,
          IconIndex, Link, Placement, DisplayAsIcon, DataType, IconFileName, IconLabel);
 }
 
@@ -18391,7 +18391,7 @@ void Selection::InsertCells(VARIANT* ShiftCells)
 {
     static BYTE parms[] =
         VTS_PVARIANT;
-    InvokeHelper(0xd6, DISPATCH_METHOD, VT_EMPTY, nullptr, parms,
+    CustomInvokeHelper(0xd6, DISPATCH_METHOD, VT_EMPTY, nullptr, parms,
          ShiftCells);
 }
 
@@ -18399,7 +18399,7 @@ void Selection::Extend(VARIANT* Character)
 {
     static BYTE parms[] =
         VTS_PVARIANT;
-    InvokeHelper(0x12c, DISPATCH_METHOD, VT_EMPTY, nullptr, parms,
+    CustomInvokeHelper(0x12c, DISPATCH_METHOD, VT_EMPTY, nullptr, parms,
          Character);
 }
 
@@ -18413,7 +18413,7 @@ long Selection::MoveLeft(VARIANT* Unit, VARIANT* Count, VARIANT* Extend)
     long result = 0L;
     static BYTE parms[] =
         VTS_PVARIANT VTS_PVARIANT VTS_PVARIANT;
-    InvokeHelper(0x1f4, DISPATCH_METHOD, VT_I4, (void*)&result, parms,
+    CustomInvokeHelper(0x1f4, DISPATCH_METHOD, VT_I4, (void*)&result, parms,
         Unit, Count, Extend);
     return result;
 }
@@ -18423,7 +18423,7 @@ long Selection::MoveRight(VARIANT* Unit, VARIANT* Count, VARIANT* Extend)
     long result = 0L;
     static BYTE parms[] =
         VTS_PVARIANT VTS_PVARIANT VTS_PVARIANT;
-    InvokeHelper(0x1f5, DISPATCH_METHOD, VT_I4, (void*)&result, parms,
+    CustomInvokeHelper(0x1f5, DISPATCH_METHOD, VT_I4, (void*)&result, parms,
         Unit, Count, Extend);
     return result;
 }
@@ -18433,7 +18433,7 @@ long Selection::MoveUp(VARIANT* Unit, VARIANT* Count, VARIANT* Extend)
     long result = 0L;
     static BYTE parms[] =
         VTS_PVARIANT VTS_PVARIANT VTS_PVARIANT;
-    InvokeHelper(0x1f6, DISPATCH_METHOD, VT_I4, (void*)&result, parms,
+    CustomInvokeHelper(0x1f6, DISPATCH_METHOD, VT_I4, (void*)&result, parms,
         Unit, Count, Extend);
     return result;
 }
@@ -18443,7 +18443,7 @@ long Selection::MoveDown(VARIANT* Unit, VARIANT* Count, VARIANT* Extend)
     long result = 0L;
     static BYTE parms[] =
         VTS_PVARIANT VTS_PVARIANT VTS_PVARIANT;
-    InvokeHelper(0x1f7, DISPATCH_METHOD, VT_I4, (void*)&result, parms,
+    CustomInvokeHelper(0x1f7, DISPATCH_METHOD, VT_I4, (void*)&result, parms,
         Unit, Count, Extend);
     return result;
 }
@@ -18453,7 +18453,7 @@ long Selection::HomeKey(VARIANT* Unit, VARIANT* Extend)
     long result = 0L;
     static BYTE parms[] =
         VTS_PVARIANT VTS_PVARIANT;
-    InvokeHelper(0x1f8, DISPATCH_METHOD, VT_I4, (void*)&result, parms,
+    CustomInvokeHelper(0x1f8, DISPATCH_METHOD, VT_I4, (void*)&result, parms,
         Unit, Extend);
     return result;
 }
@@ -18463,7 +18463,7 @@ long Selection::EndKey(VARIANT* Unit, VARIANT* Extend)
     long result = 0L;
     static BYTE parms[] =
         VTS_PVARIANT VTS_PVARIANT;
-    InvokeHelper(0x1f9, DISPATCH_METHOD, VT_I4, (void*)&result, parms,
+    CustomInvokeHelper(0x1f9, DISPATCH_METHOD, VT_I4, (void*)&result, parms,
         Unit, Extend);
     return result;
 }
@@ -18570,7 +18570,7 @@ void Selection::InsertRows(VARIANT* NumRows)
 {
     static BYTE parms[] =
         VTS_PVARIANT;
-    InvokeHelper(0x210, DISPATCH_METHOD, VT_EMPTY, nullptr, parms,
+    CustomInvokeHelper(0x210, DISPATCH_METHOD, VT_EMPTY, nullptr, parms,
          NumRows);
 }
 
@@ -18583,7 +18583,7 @@ void Selection::InsertFormula(VARIANT* Formula, VARIANT* NumberFormat)
 {
     static BYTE parms[] =
         VTS_PVARIANT VTS_PVARIANT;
-    InvokeHelper(0x212, DISPATCH_METHOD, VT_EMPTY, nullptr, parms,
+    CustomInvokeHelper(0x212, DISPATCH_METHOD, VT_EMPTY, nullptr, parms,
          Formula, NumberFormat);
 }
 
@@ -18592,7 +18592,7 @@ LPDISPATCH Selection::NextRevision(VARIANT* Wrap)
     LPDISPATCH result;
     static BYTE parms[] =
         VTS_PVARIANT;
-    InvokeHelper(0x213, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
+    CustomInvokeHelper(0x213, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
         Wrap);
     return result;
 }
@@ -18602,7 +18602,7 @@ LPDISPATCH Selection::PreviousRevision(VARIANT* Wrap)
     LPDISPATCH result;
     static BYTE parms[] =
         VTS_PVARIANT;
-    InvokeHelper(0x214, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
+    CustomInvokeHelper(0x214, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
         Wrap);
     return result;
 }
@@ -18650,7 +18650,7 @@ LPDISPATCH TablesOfAuthoritiesCategories::Item(VARIANT* Index)
     LPDISPATCH result;
     static BYTE parms[] =
         VTS_PVARIANT;
-    InvokeHelper(0x0, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
+    CustomInvokeHelper(0x0, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
         Index);
     return result;
 }
@@ -18744,7 +18744,7 @@ LPDISPATCH CaptionLabels::Item(VARIANT* Index)
     LPDISPATCH result;
     static BYTE parms[] =
         VTS_PVARIANT;
-    InvokeHelper(0x0, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
+    CustomInvokeHelper(0x0, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
         Index);
     return result;
 }
@@ -18927,7 +18927,7 @@ LPDISPATCH AutoCaptions::Item(VARIANT* Index)
     LPDISPATCH result;
     static BYTE parms[] =
         VTS_PVARIANT;
-    InvokeHelper(0x0, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
+    CustomInvokeHelper(0x0, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
         Index);
     return result;
 }
@@ -19001,7 +19001,7 @@ void AutoCaption::SetCaptionLabel(VARIANT* newValue)
 {
     static BYTE parms[] =
         VTS_PVARIANT;
-    InvokeHelper(0x3, DISPATCH_PROPERTYPUT, VT_EMPTY, nullptr, parms,
+    CustomInvokeHelper(0x3, DISPATCH_PROPERTYPUT, VT_EMPTY, nullptr, parms,
          newValue);
 }
 
@@ -19073,7 +19073,7 @@ LPDISPATCH Indexes::Add(LPDISPATCH Range, VARIANT* HeadingSeparator, VARIANT* Ri
     LPDISPATCH result;
     static BYTE parms[] =
         VTS_DISPATCH VTS_PVARIANT VTS_PVARIANT VTS_PVARIANT VTS_PVARIANT VTS_PVARIANT;
-    InvokeHelper(0x64, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
+    CustomInvokeHelper(0x64, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
         Range, HeadingSeparator, RightAlignPageNumbers, Type, NumberOfColumns, AccentedLetters);
     return result;
 }
@@ -19083,7 +19083,7 @@ LPDISPATCH Indexes::MarkEntry(LPDISPATCH Range, VARIANT* Entry, VARIANT* EntryAu
     LPDISPATCH result;
     static BYTE parms[] =
         VTS_DISPATCH VTS_PVARIANT VTS_PVARIANT VTS_PVARIANT VTS_PVARIANT VTS_PVARIANT VTS_PVARIANT VTS_PVARIANT VTS_PVARIANT;
-    InvokeHelper(0x65, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
+    CustomInvokeHelper(0x65, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
         Range, Entry, EntryAutoText, CrossReference, CrossReferenceAutoText, BookmarkName, Bold, Italic, Reading);
     return result;
 }
@@ -19092,7 +19092,7 @@ void Indexes::MarkAllEntries(LPDISPATCH Range, VARIANT* Entry, VARIANT* EntryAut
 {
     static BYTE parms[] =
         VTS_DISPATCH VTS_PVARIANT VTS_PVARIANT VTS_PVARIANT VTS_PVARIANT VTS_PVARIANT VTS_PVARIANT VTS_PVARIANT;
-    InvokeHelper(0x66, DISPATCH_METHOD, VT_EMPTY, nullptr, parms,
+    CustomInvokeHelper(0x66, DISPATCH_METHOD, VT_EMPTY, nullptr, parms,
          Range, Entry, EntryAutoText, CrossReference, CrossReferenceAutoText, BookmarkName, Bold, Italic);
 }
 
@@ -19357,7 +19357,7 @@ LPDISPATCH AddIns::Item(VARIANT* Index)
     LPDISPATCH result;
     static BYTE parms[] =
         VTS_PVARIANT;
-    InvokeHelper(0x0, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
+    CustomInvokeHelper(0x0, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
         Index);
     return result;
 }
@@ -19367,7 +19367,7 @@ LPDISPATCH AddIns::Add(LPCTSTR FileName, VARIANT* Install)
     LPDISPATCH result;
     static BYTE parms[] =
         VTS_BSTR VTS_PVARIANT;
-    InvokeHelper(0x2, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
+    CustomInvokeHelper(0x2, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
         FileName, Install);
     return result;
 }
@@ -19632,7 +19632,7 @@ void Task::Activate(VARIANT* Wait)
 {
     static BYTE parms[] =
         VTS_PVARIANT;
-    InvokeHelper(0xa, DISPATCH_METHOD, VT_EMPTY, nullptr, parms,
+    CustomInvokeHelper(0xa, DISPATCH_METHOD, VT_EMPTY, nullptr, parms,
          Wait);
 }
 
@@ -19708,7 +19708,7 @@ LPDISPATCH Tasks::Item(VARIANT* Index)
     LPDISPATCH result;
     static BYTE parms[] =
         VTS_PVARIANT;
-    InvokeHelper(0x0, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
+    CustomInvokeHelper(0x0, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
         Index);
     return result;
 }
@@ -20023,7 +20023,7 @@ LPDISPATCH PageNumbers::Add(VARIANT* PageNumberAlignment, VARIANT* FirstPage)
     LPDISPATCH result;
     static BYTE parms[] =
         VTS_PVARIANT VTS_PVARIANT;
-    InvokeHelper(0x65, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
+    CustomInvokeHelper(0x65, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
         PageNumberAlignment, FirstPage);
     return result;
 }
@@ -20162,7 +20162,7 @@ LPDISPATCH Subdocuments::AddFromFile(VARIANT* Name, VARIANT* ConfirmConversions,
     LPDISPATCH result;
     static BYTE parms[] =
         VTS_PVARIANT VTS_PVARIANT VTS_PVARIANT VTS_PVARIANT VTS_PVARIANT VTS_PVARIANT VTS_PVARIANT VTS_PVARIANT;
-    InvokeHelper(0x64, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
+    CustomInvokeHelper(0x64, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
         Name, ConfirmConversions, ReadOnly, PasswordDocument, PasswordTemplate, Revert, WritePasswordDocument, WritePasswordTemplate);
     return result;
 }
@@ -20181,7 +20181,7 @@ void Subdocuments::Merge(VARIANT* FirstSubdocument, VARIANT* LastSubdocument)
 {
     static BYTE parms[] =
         VTS_PVARIANT VTS_PVARIANT;
-    InvokeHelper(0x66, DISPATCH_METHOD, VT_EMPTY, nullptr, parms,
+    CustomInvokeHelper(0x66, DISPATCH_METHOD, VT_EMPTY, nullptr, parms,
          FirstSubdocument, LastSubdocument);
 }
 
@@ -20342,7 +20342,7 @@ LPDISPATCH HeadingStyles::Add(VARIANT* Style, short Level)
     LPDISPATCH result;
     static BYTE parms[] =
         VTS_PVARIANT VTS_I2;
-    InvokeHelper(0x64, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
+    CustomInvokeHelper(0x64, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
         Style, Level);
     return result;
 }
@@ -20382,7 +20382,7 @@ void HeadingStyle::SetStyle(VARIANT* newValue)
 {
     static BYTE parms[] =
         VTS_PVARIANT;
-    InvokeHelper(0x0, DISPATCH_PROPERTYPUT, VT_EMPTY, nullptr, parms,
+    CustomInvokeHelper(0x0, DISPATCH_PROPERTYPUT, VT_EMPTY, nullptr, parms,
          newValue);
 }
 
@@ -20764,7 +20764,7 @@ LPDISPATCH ListTemplate::Convert(VARIANT* Level)
     LPDISPATCH result;
     static BYTE parms[] =
         VTS_PVARIANT;
-    InvokeHelper(0x65, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
+    CustomInvokeHelper(0x65, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
         Level);
     return result;
 }
@@ -20812,7 +20812,7 @@ LPDISPATCH ListTemplates::Item(VARIANT* Index)
     LPDISPATCH result;
     static BYTE parms[] =
         VTS_PVARIANT;
-    InvokeHelper(0x0, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
+    CustomInvokeHelper(0x0, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
         Index);
     return result;
 }
@@ -20822,7 +20822,7 @@ LPDISPATCH ListTemplates::Add(VARIANT* OutlineNumbered, VARIANT* Name)
     LPDISPATCH result;
     static BYTE parms[] =
         VTS_PVARIANT VTS_PVARIANT;
-    InvokeHelper(0x64, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
+    CustomInvokeHelper(0x64, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
         OutlineNumbered, Name);
     return result;
 }
@@ -20924,7 +20924,7 @@ void List::ConvertNumbersToText(VARIANT* NumberType)
 {
     static BYTE parms[] =
         VTS_PVARIANT;
-    InvokeHelper(0x65, DISPATCH_METHOD, VT_EMPTY, nullptr, parms,
+    CustomInvokeHelper(0x65, DISPATCH_METHOD, VT_EMPTY, nullptr, parms,
          NumberType);
 }
 
@@ -20932,7 +20932,7 @@ void List::RemoveNumbers(VARIANT* NumberType)
 {
     static BYTE parms[] =
         VTS_PVARIANT;
-    InvokeHelper(0x66, DISPATCH_METHOD, VT_EMPTY, nullptr, parms,
+    CustomInvokeHelper(0x66, DISPATCH_METHOD, VT_EMPTY, nullptr, parms,
          NumberType);
 }
 
@@ -20941,7 +20941,7 @@ long List::CountNumberedItems(VARIANT* NumberType, VARIANT* Level)
     long result = 0L;
     static BYTE parms[] =
         VTS_PVARIANT VTS_PVARIANT;
-    InvokeHelper(0x67, DISPATCH_METHOD, VT_I4, (void*)&result, parms,
+    CustomInvokeHelper(0x67, DISPATCH_METHOD, VT_I4, (void*)&result, parms,
         NumberType, Level);
     return result;
 }
@@ -20950,7 +20950,7 @@ void List::ApplyListTemplate(LPDISPATCH ListTemplate, VARIANT* ContinuePreviousL
 {
     static BYTE parms[] =
         VTS_DISPATCH VTS_PVARIANT;
-    InvokeHelper(0x68, DISPATCH_METHOD, VT_EMPTY, nullptr, parms,
+    CustomInvokeHelper(0x68, DISPATCH_METHOD, VT_EMPTY, nullptr, parms,
          ListTemplate, ContinuePreviousList);
 }
 
@@ -21169,7 +21169,7 @@ LPDISPATCH KeyBindings::Add(long KeyCategory, LPCTSTR Command, long KeyCode, VAR
     LPDISPATCH result;
     static BYTE parms[] =
         VTS_I4 VTS_BSTR VTS_I4 VTS_PVARIANT VTS_PVARIANT;
-    InvokeHelper(0x65, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
+    CustomInvokeHelper(0x65, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
         KeyCategory, Command, KeyCode, KeyCode2, CommandParameter);
     return result;
 }
@@ -21184,7 +21184,7 @@ LPDISPATCH KeyBindings::Key(long KeyCode, VARIANT* KeyCode2)
     LPDISPATCH result;
     static BYTE parms[] =
         VTS_I4 VTS_PVARIANT;
-    InvokeHelper(0x6e, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
+    CustomInvokeHelper(0x6e, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
         KeyCode, KeyCode2);
     return result;
 }
@@ -21270,7 +21270,7 @@ LPDISPATCH KeysBoundTo::Key(long KeyCode, VARIANT* KeyCode2)
     LPDISPATCH result;
     static BYTE parms[] =
         VTS_I4 VTS_PVARIANT;
-    InvokeHelper(0x1, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
+    CustomInvokeHelper(0x1, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
         KeyCode, KeyCode2);
     return result;
 }
@@ -21374,7 +21374,7 @@ void KeyBinding::Rebind(long KeyCategory, LPCTSTR Command, VARIANT* CommandParam
 {
     static BYTE parms[] =
         VTS_I4 VTS_BSTR VTS_PVARIANT;
-    InvokeHelper(0x68, DISPATCH_METHOD, VT_EMPTY, nullptr, parms,
+    CustomInvokeHelper(0x68, DISPATCH_METHOD, VT_EMPTY, nullptr, parms,
          KeyCategory, Command, CommandParameter);
 }
 
@@ -21523,7 +21523,7 @@ LPDISPATCH FileConverters::Item(VARIANT* Index)
     LPDISPATCH result;
     static BYTE parms[] =
         VTS_PVARIANT;
-    InvokeHelper(0x0, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
+    CustomInvokeHelper(0x0, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
         Index);
     return result;
 }
@@ -21592,7 +21592,7 @@ VARIANT SynonymInfo::GetSynonymList(VARIANT* Meaning)
     VARIANT result;
     static BYTE parms[] =
         VTS_PVARIANT;
-    InvokeHelper(0x7, DISPATCH_PROPERTYGET, VT_VARIANT, (void*)&result, parms,
+    CustomInvokeHelper(0x7, DISPATCH_PROPERTYGET, VT_VARIANT, (void*)&result, parms,
         Meaning);
     return result;
 }
@@ -21661,7 +21661,7 @@ LPDISPATCH Hyperlinks::Item(VARIANT* Index)
     LPDISPATCH result;
     static BYTE parms[] =
         VTS_PVARIANT;
-    InvokeHelper(0x0, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
+    CustomInvokeHelper(0x0, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
         Index);
     return result;
 }
@@ -21671,7 +21671,7 @@ LPDISPATCH Hyperlinks::Add(LPDISPATCH Anchor, VARIANT* Address, VARIANT* SubAddr
     LPDISPATCH result;
     static BYTE parms[] =
         VTS_DISPATCH VTS_PVARIANT VTS_PVARIANT;
-    InvokeHelper(0x64, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
+    CustomInvokeHelper(0x64, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
         Anchor, Address, SubAddress);
     return result;
 }
@@ -21758,7 +21758,7 @@ void Hyperlink::Follow(VARIANT* NewWindow, VARIANT* AddHistory, VARIANT* ExtraIn
 {
     static BYTE parms[] =
         VTS_PVARIANT VTS_PVARIANT VTS_PVARIANT VTS_PVARIANT VTS_PVARIANT;
-    InvokeHelper(0x68, DISPATCH_METHOD, VT_EMPTY, nullptr, parms,
+    CustomInvokeHelper(0x68, DISPATCH_METHOD, VT_EMPTY, nullptr, parms,
          NewWindow, AddHistory, ExtraInfo, Method, HeaderInfo);
 }
 
@@ -21810,7 +21810,7 @@ LPDISPATCH Shapes::Item(VARIANT* Index)
     LPDISPATCH result;
     static BYTE parms[] =
         VTS_PVARIANT;
-    InvokeHelper(0x0, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
+    CustomInvokeHelper(0x0, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
         Index);
     return result;
 }
@@ -21820,7 +21820,7 @@ LPDISPATCH Shapes::AddCallout(long Type, float Left, float Top, float Width, flo
     LPDISPATCH result;
     static BYTE parms[] =
         VTS_I4 VTS_R4 VTS_R4 VTS_R4 VTS_R4 VTS_PVARIANT;
-    InvokeHelper(0xa, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
+    CustomInvokeHelper(0xa, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
         Type, Left, Top, Width, Height, Anchor);
     return result;
 }
@@ -21830,7 +21830,7 @@ LPDISPATCH Shapes::AddCurve(VARIANT* SafeArrayOfPoints, VARIANT* Anchor)
     LPDISPATCH result;
     static BYTE parms[] =
         VTS_PVARIANT VTS_PVARIANT;
-    InvokeHelper(0xc, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
+    CustomInvokeHelper(0xc, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
         SafeArrayOfPoints, Anchor);
     return result;
 }
@@ -21840,7 +21840,7 @@ LPDISPATCH Shapes::AddLabel(long Orientation, float Left, float Top, float Width
     LPDISPATCH result;
     static BYTE parms[] =
         VTS_I4 VTS_R4 VTS_R4 VTS_R4 VTS_R4 VTS_PVARIANT;
-    InvokeHelper(0xd, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
+    CustomInvokeHelper(0xd, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
         Orientation, Left, Top, Width, Height, Anchor);
     return result;
 }
@@ -21850,7 +21850,7 @@ LPDISPATCH Shapes::AddLine(float BeginX, float BeginY, float EndX, float EndY, V
     LPDISPATCH result;
     static BYTE parms[] =
         VTS_R4 VTS_R4 VTS_R4 VTS_R4 VTS_PVARIANT;
-    InvokeHelper(0xe, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
+    CustomInvokeHelper(0xe, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
         BeginX, BeginY, EndX, EndY, Anchor);
     return result;
 }
@@ -21860,7 +21860,7 @@ LPDISPATCH Shapes::AddPicture(LPCTSTR FileName, VARIANT* LinkToFile, VARIANT* Sa
     LPDISPATCH result;
     static BYTE parms[] =
         VTS_BSTR VTS_PVARIANT VTS_PVARIANT VTS_PVARIANT VTS_PVARIANT VTS_PVARIANT VTS_PVARIANT VTS_PVARIANT;
-    InvokeHelper(0xf, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
+    CustomInvokeHelper(0xf, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
         FileName, LinkToFile, SaveWithDocument, Left, Top, Width, Height, Anchor);
     return result;
 }
@@ -21870,7 +21870,7 @@ LPDISPATCH Shapes::AddPolyline(VARIANT* SafeArrayOfPoints, VARIANT* Anchor)
     LPDISPATCH result;
     static BYTE parms[] =
         VTS_PVARIANT VTS_PVARIANT;
-    InvokeHelper(0x10, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
+    CustomInvokeHelper(0x10, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
         SafeArrayOfPoints, Anchor);
     return result;
 }
@@ -21880,7 +21880,7 @@ LPDISPATCH Shapes::AddShape(long Type, float Left, float Top, float Width, float
     LPDISPATCH result;
     static BYTE parms[] =
         VTS_I4 VTS_R4 VTS_R4 VTS_R4 VTS_R4 VTS_PVARIANT;
-    InvokeHelper(0x11, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
+    CustomInvokeHelper(0x11, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
         Type, Left, Top, Width, Height, Anchor);
     return result;
 }
@@ -21890,7 +21890,7 @@ LPDISPATCH Shapes::AddTextEffect(long PresetTextEffect, LPCTSTR Text, LPCTSTR Fo
     LPDISPATCH result;
     static BYTE parms[] =
         VTS_I4 VTS_BSTR VTS_BSTR VTS_R4 VTS_I4 VTS_I4 VTS_R4 VTS_R4 VTS_PVARIANT;
-    InvokeHelper(0x12, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
+    CustomInvokeHelper(0x12, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
         PresetTextEffect, Text, FontName, FontSize, FontBold, FontItalic, Left, Top, Anchor);
     return result;
 }
@@ -21900,7 +21900,7 @@ LPDISPATCH Shapes::AddTextbox(long Orientation, float Left, float Top, float Wid
     LPDISPATCH result;
     static BYTE parms[] =
         VTS_I4 VTS_R4 VTS_R4 VTS_R4 VTS_R4 VTS_PVARIANT;
-    InvokeHelper(0x13, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
+    CustomInvokeHelper(0x13, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
         Orientation, Left, Top, Width, Height, Anchor);
     return result;
 }
@@ -21920,7 +21920,7 @@ LPDISPATCH Shapes::Range(VARIANT* Index)
     LPDISPATCH result;
     static BYTE parms[] =
         VTS_PVARIANT;
-    InvokeHelper(0x15, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
+    CustomInvokeHelper(0x15, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
         Index);
     return result;
 }
@@ -21946,7 +21946,7 @@ LPDISPATCH Shapes::AddOLEControl(VARIANT* ClassType, VARIANT* Left, VARIANT* Top
     LPDISPATCH result;
     static BYTE parms[] =
         VTS_PVARIANT VTS_PVARIANT VTS_PVARIANT VTS_PVARIANT VTS_PVARIANT VTS_PVARIANT;
-    InvokeHelper(0x66, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
+    CustomInvokeHelper(0x66, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
         ClassType, Left, Top, Width, Height, Anchor);
     return result;
 }
@@ -22307,7 +22307,7 @@ LPDISPATCH ShapeRange::Item(VARIANT* Index)
     LPDISPATCH result;
     static BYTE parms[] =
         VTS_PVARIANT;
-    InvokeHelper(0x0, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
+    CustomInvokeHelper(0x0, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
         Index);
     return result;
 }
@@ -22416,7 +22416,7 @@ void ShapeRange::Select(VARIANT* Replace)
 {
     static BYTE parms[] =
         VTS_PVARIANT;
-    InvokeHelper(0x19, DISPATCH_METHOD, VT_EMPTY, nullptr, parms,
+    CustomInvokeHelper(0x19, DISPATCH_METHOD, VT_EMPTY, nullptr, parms,
          Replace);
 }
 
@@ -22502,7 +22502,7 @@ LPDISPATCH GroupShapes::Item(VARIANT* Index)
     LPDISPATCH result;
     static BYTE parms[] =
         VTS_PVARIANT;
-    InvokeHelper(0x0, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
+    CustomInvokeHelper(0x0, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
         Index);
     return result;
 }
@@ -22932,7 +22932,7 @@ void Shape::Select(VARIANT* Replace)
 {
     static BYTE parms[] =
         VTS_PVARIANT;
-    InvokeHelper(0x15, DISPATCH_METHOD, VT_EMPTY, nullptr, parms,
+    CustomInvokeHelper(0x15, DISPATCH_METHOD, VT_EMPTY, nullptr, parms,
          Replace);
 }
 
@@ -24113,7 +24113,7 @@ void View::CollapseOutline(VARIANT* Range)
 {
     static BYTE parms[] =
         VTS_PVARIANT;
-    InvokeHelper(0x65, DISPATCH_METHOD, VT_EMPTY, nullptr, parms,
+    CustomInvokeHelper(0x65, DISPATCH_METHOD, VT_EMPTY, nullptr, parms,
          Range);
 }
 
@@ -24121,7 +24121,7 @@ void View::ExpandOutline(VARIANT* Range)
 {
     static BYTE parms[] =
         VTS_PVARIANT;
-    InvokeHelper(0x66, DISPATCH_METHOD, VT_EMPTY, nullptr, parms,
+    CustomInvokeHelper(0x66, DISPATCH_METHOD, VT_EMPTY, nullptr, parms,
          Range);
 }
 
@@ -24531,7 +24531,7 @@ LPDISPATCH InlineShapes::AddPicture(LPCTSTR FileName, VARIANT* LinkToFile, VARIA
     LPDISPATCH result;
     static BYTE parms[] =
         VTS_BSTR VTS_PVARIANT VTS_PVARIANT VTS_PVARIANT;
-    InvokeHelper(0x64, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
+    CustomInvokeHelper(0x64, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
         FileName, LinkToFile, SaveWithDocument, Range);
     return result;
 }
@@ -24541,7 +24541,7 @@ LPDISPATCH InlineShapes::AddOLEObject(VARIANT* ClassType, VARIANT* FileName, VAR
     LPDISPATCH result;
     static BYTE parms[] =
         VTS_PVARIANT VTS_PVARIANT VTS_PVARIANT VTS_PVARIANT VTS_PVARIANT VTS_PVARIANT VTS_PVARIANT VTS_PVARIANT;
-    InvokeHelper(0x18, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
+    CustomInvokeHelper(0x18, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
         ClassType, FileName, LinkToFile, DisplayAsIcon, IconFileName, IconIndex, IconLabel, Range);
     return result;
 }
@@ -24551,7 +24551,7 @@ LPDISPATCH InlineShapes::AddOLEControl(VARIANT* ClassType, VARIANT* Range)
     LPDISPATCH result;
     static BYTE parms[] =
         VTS_PVARIANT VTS_PVARIANT;
-    InvokeHelper(0x66, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
+    CustomInvokeHelper(0x66, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
         ClassType, Range);
     return result;
 }
@@ -24717,7 +24717,7 @@ LPDISPATCH Dictionaries::Item(VARIANT* Index)
     LPDISPATCH result;
     static BYTE parms[] =
         VTS_PVARIANT;
-    InvokeHelper(0x0, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
+    CustomInvokeHelper(0x0, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
         Index);
     return result;
 }
@@ -24809,7 +24809,7 @@ LPDISPATCH HangulHanjaConversionDictionaries::Item(VARIANT* Index)
     LPDISPATCH result;
     static BYTE parms[] =
         VTS_PVARIANT;
-    InvokeHelper(0x0, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
+    CustomInvokeHelper(0x0, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
         Index);
     return result;
 }
@@ -24959,7 +24959,7 @@ LPDISPATCH ReadabilityStatistics::Item(VARIANT* Index)
     LPDISPATCH result;
     static BYTE parms[] =
         VTS_PVARIANT;
-    InvokeHelper(0x0, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
+    CustomInvokeHelper(0x0, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
         Index);
     return result;
 }
@@ -25069,7 +25069,7 @@ void Versions::Save(VARIANT* Comment)
 {
     static BYTE parms[] =
         VTS_PVARIANT;
-    InvokeHelper(0xb, DISPATCH_METHOD, VT_EMPTY, nullptr, parms,
+    CustomInvokeHelper(0xb, DISPATCH_METHOD, VT_EMPTY, nullptr, parms,
          Comment);
 }
 
@@ -26613,7 +26613,7 @@ void Options::SetWPHelpOptions(VARIANT* CommandKeyHelp, VARIANT* DocNavigationKe
 {
     static BYTE parms[] =
         VTS_PVARIANT VTS_PVARIANT VTS_PVARIANT VTS_PVARIANT VTS_PVARIANT VTS_PVARIANT;
-    InvokeHelper(0x14d, DISPATCH_METHOD, VT_EMPTY, nullptr, parms,
+    CustomInvokeHelper(0x14d, DISPATCH_METHOD, VT_EMPTY, nullptr, parms,
          CommandKeyHelp, DocNavigationKeys, MouseSimulation, DemoGuidance, DemoSpeed, HelpType);
 }
 
@@ -26786,7 +26786,7 @@ void Mailer::SetBCCRecipients(VARIANT* newValue)
 {
     static BYTE parms[] =
         VTS_PVARIANT;
-    InvokeHelper(0x64, DISPATCH_PROPERTYPUT, VT_EMPTY, nullptr, parms,
+    CustomInvokeHelper(0x64, DISPATCH_PROPERTYPUT, VT_EMPTY, nullptr, parms,
          newValue);
 }
 
@@ -26801,7 +26801,7 @@ void Mailer::SetCCRecipients(VARIANT* newValue)
 {
     static BYTE parms[] =
         VTS_PVARIANT;
-    InvokeHelper(0x65, DISPATCH_PROPERTYPUT, VT_EMPTY, nullptr, parms,
+    CustomInvokeHelper(0x65, DISPATCH_PROPERTYPUT, VT_EMPTY, nullptr, parms,
          newValue);
 }
 
@@ -26816,7 +26816,7 @@ void Mailer::SetRecipients(VARIANT* newValue)
 {
     static BYTE parms[] =
         VTS_PVARIANT;
-    InvokeHelper(0x66, DISPATCH_PROPERTYPUT, VT_EMPTY, nullptr, parms,
+    CustomInvokeHelper(0x66, DISPATCH_PROPERTYPUT, VT_EMPTY, nullptr, parms,
          newValue);
 }
 
@@ -26831,7 +26831,7 @@ void Mailer::SetEnclosures(VARIANT* newValue)
 {
     static BYTE parms[] =
         VTS_PVARIANT;
-    InvokeHelper(0x67, DISPATCH_PROPERTYPUT, VT_EMPTY, nullptr, parms,
+    CustomInvokeHelper(0x67, DISPATCH_PROPERTYPUT, VT_EMPTY, nullptr, parms,
          newValue);
 }
 
@@ -27028,7 +27028,7 @@ LPDISPATCH HangulAndAlphabetExceptions::Item(VARIANT* Index)
     LPDISPATCH result;
     static BYTE parms[] =
         VTS_PVARIANT;
-    InvokeHelper(0x0, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
+    CustomInvokeHelper(0x0, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
         Index);
     return result;
 }
@@ -27695,7 +27695,7 @@ LPDISPATCH FreeformBuilder::ConvertToShape(VARIANT* Anchor)
     LPDISPATCH result;
     static BYTE parms[] =
         VTS_PVARIANT;
-    InvokeHelper(0xb, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
+    CustomInvokeHelper(0xb, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
         Anchor);
     return result;
 }
@@ -28326,7 +28326,7 @@ LPDISPATCH ShapeNodes::Item(VARIANT* Index)
     LPDISPATCH result;
     static BYTE parms[] =
         VTS_PVARIANT;
-    InvokeHelper(0x0, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
+    CustomInvokeHelper(0x0, DISPATCH_METHOD, VT_DISPATCH, (void*)&result, parms,
         Index);
     return result;
 }
